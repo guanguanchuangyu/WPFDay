@@ -1,0 +1,239 @@
+﻿<Window x:Class="WPFDay1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lib="clr-namespace:WPFDayLib;assembly=WPFDayLib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="674.4" Width="1172" Foreground="#B1B6B9" Background="#f9fafc">
+    <Window.Resources>
+        <GeometryGroup x:Key="shishi">
+            <Geometry>M865.28 691.2H158.72c-16.896 0-30.72-13.824-30.72-30.72V158.72c0-16.896 13.824-30.72 30.72-30.72h706.56c16.896 0 30.72 13.824 30.72 30.72v501.76c0 16.896-13.824 30.72-30.72 30.72z m-686.08-51.2h665.6v-460.8h-665.6v460.8zM640.512 781.312h-256c-14.336 0-25.6-11.264-25.6-25.6s11.264-25.6 25.6-25.6h256c14.336 0 25.6 11.264 25.6 25.6 0 13.824-11.776 25.6-25.6 25.6zM742.912 896.512h-460.8c-14.336 0-25.6-11.264-25.6-25.6s11.264-25.6 25.6-25.6h460.8c14.336 0 25.6 11.264 25.6 25.6s-11.776 25.6-25.6 25.6z</Geometry>
+            <Geometry>M538.112 286.72v256c0 14.336-11.264 25.6-25.6 25.6s-25.6-11.264-25.6-25.6v-256c0-14.336 11.264-25.6 25.6-25.6 13.824 0 25.6 11.776 25.6 25.6zM412.16 337.92v153.6c0 14.336-11.264 25.6-25.6 25.6s-25.6-11.264-25.6-25.6v-153.6c0-14.336 11.264-25.6 25.6-25.6 13.824 0 25.6 11.776 25.6 25.6zM664.064 312.32v204.8c0 14.336-11.264 25.6-25.6 25.6s-25.6-11.264-25.6-25.6v-204.8c0-14.336 11.264-25.6 25.6-25.6 13.824 0 25.6 11.776 25.6 25.6zM286.208 363.52v102.4c0 14.336-11.264 25.6-25.6 25.6s-25.6-11.264-25.6-25.6v-102.4c0-14.336 11.264-25.6 25.6-25.6s25.6 11.776 25.6 25.6zM790.016 363.52v102.4c0 14.336-11.264 25.6-25.6 25.6s-25.6-11.264-25.6-25.6v-102.4c0-14.336 11.264-25.6 25.6-25.6 13.824 0 25.6 11.776 25.6 25.6z</Geometry>
+        </GeometryGroup>
+
+        <GeometryGroup x:Key="bingren">
+            <Geometry>M754.176 291.328C754.176 130.048 623.616 0 462.848 0S171.52 130.56 171.52 291.328c0 103.936 55.296 199.68 145.408 251.904-182.784 62.976-305.664 233.984-307.712 427.52-1.024 16.384 11.264 30.72 28.16 31.744h4.096c16.896 1.024 31.232-11.776 32.768-28.672v-3.584c0-216.064 175.104-390.656 390.656-390.656 159.232-0.512 288.256-129.024 289.28-288.256zM465.92 520.192c-123.904-1.024-223.744-102.4-222.72-226.816s102.4-223.744 226.816-222.72 223.744 102.4 222.72 226.816c-0.512 58.88-24.064 115.712-66.048 157.184-43.008 42.496-100.864 66.048-160.768 65.536z</Geometry>
+            <Geometry>M970.24 629.248c-56.832-62.976-154.112-68.096-217.088-11.264l-1.024 1.024c-29.696-28.16-70.144-42.496-110.592-39.936-40.96 1.536-79.872 19.968-107.52 50.688-27.648 29.696-41.984 69.632-39.424 110.592 1.536 40.448 19.456 78.336 48.64 105.472l195.584 171.52c4.608 4.608 10.752 6.656 16.896 6.656 6.144 0 12.288-2.048 16.896-6.656l195.584-172.032c28.672-27.648 45.056-65.024 46.08-104.96 0.512-41.472-14.848-81.408-44.032-111.104z m-38.912 179.2l-177.152 156.16-177.152-156.16c-19.968-18.432-31.744-44.032-33.28-71.168-2.048-27.136 7.68-53.76 26.112-73.728 18.432-19.968 44.544-32.256 71.68-33.28h5.12c24.064 0 47.104 9.216 65.024 25.6l19.456 19.456c9.728 10.24 25.6 10.24 35.84 0.512l0.512-0.512 18.944-18.944c42.496-36.864 106.496-33.28 144.384 8.704 18.432 20.48 28.672 47.616 27.136 75.776 0.512 25.088-9.216 49.152-26.624 67.584z</Geometry>
+            <Geometry>M814.592 777.216h-42.496v-42.496c-2.048-11.264-12.8-18.944-24.064-16.896-8.704 1.536-15.36 8.192-16.896 16.896v42.496h-42.496c-11.264-0.512-20.992 8.704-21.504 19.968-0.512 11.264 8.704 20.992 19.968 21.504H731.136v41.472c-0.512 11.264 8.192 20.48 19.456 20.992h0.512c10.752 0.512 19.968-7.168 20.992-17.92V819.2h42.496c11.264-0.512 20.48-10.24 19.968-21.504 0-11.776-8.704-20.48-19.968-20.48z</Geometry>
+        </GeometryGroup>
+
+        <GeometryGroup x:Key="chuangwei">
+            <Geometry>M981.333333 670.72v-128c0-58.88-47.786667-106.666667-106.666666-106.666667H395.093333v-42.666666c0-52.906667-43.52-95.573333-95.573333-95.573334H106.666667V148.48c0-17.92-14.506667-32.426667-32.426667-32.426667s-31.573333 14.506667-31.573333 32.426667v500.906667c0 45.226667 28.16 83.626667 67.413333 98.986666l-40.96 116.053334c-5.973333 17.066667 2.56 34.986667 19.626667 40.96a32.085333 32.085333 0 0 0 40.106666-19.626667l46.08-130.56h672.426667l46.08 130.56c5.12 12.8 17.066667 21.333333 29.866667 21.333333 3.413333 0 6.826667-0.853333 10.24-1.706666 16.213333-5.973333 25.6-23.893333 19.626666-40.96l-39.253333-110.933334c39.253333-8.533333 67.413333-41.813333 67.413333-82.773333zM106.666667 361.813333H298.666667c17.92 0 32.426667 14.506667 32.426666 32.426667v42.666667H106.666667v-75.093334z m810.666666 308.906667c0 11.946667-9.386667 21.333333-21.333333 21.333333H149.333333c-23.893333 0-42.666667-19.626667-42.666666-42.666666V500.053333h768c23.893333 0 42.666667 19.626667 42.666666 42.666667v128z</Geometry>
+        </GeometryGroup>
+
+        <GeometryGroup x:Key="yihu">
+            <Geometry>M675.238957 305.819826a34.370783 34.370783 0 0 1-34.370783-34.370783V202.729739c0-18.944-15.404522-34.348522-34.348522-34.348522h-188.994782c-18.944 0-34.370783 15.404522-34.370783 34.348522v68.719304a34.370783 34.370783 0 0 1-68.719304 0V202.729739a103.201391 103.201391 0 0 1 103.067826-103.067826h188.994782a103.201391 103.201391 0 0 1 103.090087 103.067826v68.719304c0 18.988522-15.36 34.370783-34.348521 34.370783zM889.989565 924.360348H134.010435a68.786087 68.786087 0 0 1-68.719305-68.741565V305.819826a68.786087 68.786087 0 0 1 68.719305-68.719304h755.97913a68.786087 68.786087 0 0 1 68.719305 68.719304v549.798957a68.786087 68.786087 0 0 1-68.719305 68.741565zM134.010435 305.819826v549.798957h756.023652l-0.044522-549.798957H134.010435zM340.21287 537.778087h343.618782v85.904696H340.21287zM469.058783 752.528696V408.932174h85.926956v343.618783z</Geometry>
+        </GeometryGroup>
+
+        <GeometryGroup x:Key="baobiao">
+            <Geometry>M768 819.2a38.4 38.4 0 0 1 2.253 76.736L768 896H153.6a38.4 38.4 0 0 1-2.253-76.736l2.253-0.064H768zM832 0a89.6 89.6 0 0 1 89.6 89.6v563.2a89.6 89.6 0 0 1-89.6 89.6H89.6A89.6 89.6 0 0 1 0 652.8V89.6A89.6 89.6 0 0 1 89.6 0z m0 76.8H89.6a12.8 12.8 0 0 0-12.8 12.8v563.2a12.8 12.8 0 0 0 12.8 12.8H832a12.8 12.8 0 0 0 12.8-12.8V89.6A12.8 12.8 0 0 0 832 76.8zM701.26 210.893a38.4 38.4 0 0 1 58.266 49.971l-1.587 1.843-204.8 224a38.4 38.4 0 0 1-59.545-3.533l-1.357-2.022-101.21-161.946L220.34 505.907a38.4 38.4 0 0 1-52.403 4.02l-1.843-1.588a38.4 38.4 0 0 1-4.02-52.403l1.588-1.843 204.8-224a38.4 38.4 0 0 1 59.545 3.533l1.357 2.022L530.56 397.581l170.7-186.688z</Geometry>
+        </GeometryGroup>
+
+
+        <GeometryGroup x:Key="shebei">
+            <Geometry>M874.069333 341.333333C909.696 341.333333 938.666667 370.048 938.666667 405.333333v426.666667c0 35.285333-28.970667 64-64.597334 64h-212.138666A64.341333 64.341333 0 0 1 597.333333 832v-426.666667c0-35.285333 28.970667-64 64.597334-64z m-7.253333-201.344a32 32 0 0 1 31.744 27.648l0.298667 4.352v133.973334h-72.021334V211.968H160.170667v416h401.621333v71.978667h-32.256v112h32.256v71.978666H320.170667a8.021333 8.021333 0 0 1-7.594667-5.461333l-0.426667-2.517333v-48c0-7.68 5.546667-14.165333 12.8-15.658667l3.242667-0.341333h129.322667v-112H120.192a32 32 0 0 1-31.701333-27.648l-0.298667-4.352V171.989333a32 32 0 0 1 27.648-31.701333l4.352-0.298667h746.666667z m-0.810667 273.322667h-196.010666v410.709333h196.010666V413.354667zM768 682.026667c22.272 0 40.362667 17.92 40.362667 40.021333a40.192 40.192 0 0 1-40.362667 39.978667 40.192 40.192 0 0 1-40.362667-39.978667c0-22.101333 18.090667-40.021333 40.362667-40.021333z</Geometry>
+        </GeometryGroup>
+
+        <GeometryGroup x:Key="xitong">
+            <Geometry>M512 1015.893333a41.386667 41.386667 0 0 1-21.333333-5.546666L91.093333 779.733333a42.666667 42.666667 0 0 1-21.333333-37.12V281.173333a42.666667 42.666667 0 0 1 21.333333-36.906666L490.666667 13.653333a42.666667 42.666667 0 0 1 42.666666 0L658.346667 85.333333a42.666667 42.666667 0 0 1-42.666667 74.026667L512 99.84 155.093333 305.92v412.16L512 923.946667l356.48-205.866667V305.92l-105.6-61.013333a42.666667 42.666667 0 1 1 42.666667-74.026667l126.933333 73.386667a42.666667 42.666667 0 0 1 21.333333 36.906666v461.44a42.666667 42.666667 0 0 1-21.333333 37.12L533.333333 1010.346667a42.666667 42.666667 0 0 1-21.333333 5.546666zM512 686.08A174.506667 174.506667 0 1 1 686.08 512 174.72 174.72 0 0 1 512 686.08z m0-263.68a89.173333 89.173333 0 1 0 88.746667 89.6A89.386667 89.386667 0 0 0 512 422.4z</Geometry>
+        </GeometryGroup>
+
+        <!--#region ListViewItem 模板 -->
+        <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type ListViewItem}">
+            <!--需要给根容器添加背景色用于捕获事件-->
+            <Grid Background="Transparent" SnapsToDevicePixels="True">
+                <Border x:Name="Bg" Background="{TemplateBinding Background}"></Border>
+                <Border Padding="{TemplateBinding Padding}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                        <Path Fill="{TemplateBinding Foreground}" Stretch="Uniform" Width="12.8" Height="12.8"
+                                           Margin="11.2,12.8" Data="{TemplateBinding lib:ControlExtensions.Data}">
+                        </Path>
+                        <!--<TextBlock Text="&#xe609;" FontFamily="pack://application:,,,WPFDay1;Component/Resources/#iconfont" Padding="0,16" Foreground="{TemplateBinding Foreground}"></TextBlock>-->
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"></ContentPresenter>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="ListViewItem.IsSelected" Value="True">
+                    <Setter Property="Background" TargetName="Bg" Value="#50BEE9D4"></Setter>
+                    <Setter Property="BorderBrush" TargetName="Bg" Value="#1EA64A"></Setter>
+                    <Setter Property="BorderThickness" TargetName="Bg" Value="0,0,4,0"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <!--#endregion-->
+
+        <!--#region ListViewItem默认样式 -->
+        <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Padding" Value="30.4,0"/>
+            <Setter Property="FontSize" Value="12.8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="lib:ControlExtensions.Data" Value="{StaticResource shishi}"/>
+            <Setter Property="Template" Value="{StaticResource ButtonTemplate}"/>
+            <Style.Triggers>
+                <Trigger Property="ListViewItem.IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="#11B15F"/>
+                    <Setter Property="Background" Value="#50BEE9D4"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--#endregion-->
+        
+    </Window.Resources>
+    <!--整体布局-->
+    <DockPanel>
+        <Border DockPanel.Dock="Left" Grid.ColumnSpan="2" Width="164" Background="White">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="20" Color="#eef4fa" ShadowDepth="10" Opacity="0.8" RenderingBias="Quality"></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <!--显示内容-->
+                <StackPanel HorizontalAlignment="Center" Margin="0,41.6,0,0">
+                    <TextBlock Text="15:36:06" DockPanel.Dock="Top" FontSize="24" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center"></TextBlock>
+                    <TextBlock Text="2020年5月20日 星期三" Margin="0,12.8" HorizontalAlignment="Center" Foreground="LightGray"/>
+                </StackPanel>
+                <!--#region 侧面菜单 -->
+                <ListView SelectedIndex="0" BorderThickness="0">
+                    <ListViewItem lib:ControlExtensions.Data="{StaticResource bingren}" Content="病人管理"/>
+                    <ListViewItem lib:ControlExtensions.Data="{StaticResource chuangwei}" Content="床位管理"/>
+                    <ListViewItem lib:ControlExtensions.Data="{StaticResource yihu}" Content="医护管理"/>
+                    <ListViewItem lib:ControlExtensions.Data="{StaticResource baobiao}" Content="报表管理"/>
+                    <ListViewItem lib:ControlExtensions.Data="{StaticResource shebei}" Content="设备管理"/>
+                    <ListViewItem lib:ControlExtensions.Data="{StaticResource xitong}" Content="系统设置"/>
+
+                    <ListView.Template>
+                        <ControlTemplate>
+                            <ItemsPresenter></ItemsPresenter>
+                        </ControlTemplate>
+                    </ListView.Template>
+                </ListView>
+                <!--#endregion-->
+
+                <!--<ListViewItem IsSelected="True" local:ControlExtensions.Data="{StaticResource bingren}" Content="病人管理"/>
+                <ListViewItem local:ControlExtensions.Data="{StaticResource chuangwei}" Content="床位管理"/>
+                <ListViewItem local:ControlExtensions.Data="{StaticResource yihu}" Content="医护管理"/>
+                <ListViewItem local:ControlExtensions.Data="{StaticResource baobiao}" Content="报表管理"/>
+                <ListViewItem local:ControlExtensions.Data="{StaticResource shebei}" Content="设备管理"/>
+                <ListViewItem local:ControlExtensions.Data="{StaticResource xitong}" Content="系统设置"/>-->
+            </StackPanel>
+        </Border>
+        <!--右侧内容-->
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Background="White" Margin="3.2,0,0,0">
+                <!--#region 右侧顶部导航内容 -->
+                <Border BorderBrush="#f1f2f3" Padding="0,20.8,1.6,12.8" Margin="17.6,0,0,0" BorderThickness="0,0,0,1">
+                    <WrapPanel>
+                        <!--右侧顶部导航内容-->
+                        <TextBlock Text="实时检测"></TextBlock>
+                        <TextBlock Text=" / "></TextBlock>
+                        <TextBlock Text="体温数据详情页" Foreground="#11B15F" FontWeight="Black"></TextBlock>
+                    </WrapPanel>
+                </Border>
+                <!--#endregion-->
+                <Border Height="52.8" Padding="17.6,12.8,0,0">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                            <!--#region 显示按钮 -->
+                            <Button Content="解绑" Width="49.6" Padding="12.8,6.4" Margin="0,0,12.8,0" FontSize="10" VerticalAlignment="Top">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                            <Button Content="导出" Width="49.6" Padding="12.8,6.4" Margin="0,0,12.8,0" 
+                                    FontSize="10" 
+                                    Background="#1EA64A" 
+                                    BorderThickness="0"
+                                    Foreground="White" VerticalAlignment="Top">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                            <!--#endregion-->
+                        </StackPanel>
+                        <TextBlock Text="患者体温监测数据详情" Foreground="Black" FontWeight="Black" FontSize="16"></TextBlock>
+                    </DockPanel>
+                </Border>
+            </StackPanel>
+            <Border Padding="19.2,19.2,19.2,38.4">
+                <DockPanel>
+                    <!--#region 患者基本信息 -->
+                    <Border DockPanel.Dock="Left" Width="210" HorizontalAlignment="Left" Background="White" CornerRadius="5" Padding="16">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="20" Direction="20" Color="#eef4fa" ShadowDepth="0" Opacity="0.8" RenderingBias="Quality"></DropShadowEffect>
+                        </Border.Effect>
+                        <DockPanel>
+                            <Border DockPanel.Dock="Top" Padding="0,0,0,10" BorderBrush="#f1f2f3" BorderThickness="0,0,0,1">
+                                <TextBlock Text="患者基本信息" FontWeight="Black" FontSize="14" Foreground="Black"></TextBlock>
+                            </Border>
+                            <ContentControl></ContentControl>
+                        </DockPanel>
+                    </Border>
+                    <!--#endregion-->
+                    <!--#region 历史体温数据 -->
+                    <Border Width="260" DockPanel.Dock="Right" 
+                            HorizontalAlignment="Right" 
+                            Background="White" CornerRadius="5" Padding="16">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="20" Direction="20" Color="#eef4fa" ShadowDepth="0" Opacity="0.8" RenderingBias="Quality"></DropShadowEffect>
+                        </Border.Effect>
+                        <DockPanel>
+                            <Border DockPanel.Dock="Top" Padding="0,0,0,8" BorderBrush="#f1f2f3" BorderThickness="0,0,0,1">
+                                <TextBlock Text="设备状态详情" FontWeight="Black" FontSize="14" Foreground="Black"></TextBlock>
+                            </Border>
+                            <ContentControl></ContentControl>
+                        </DockPanel>
+                    </Border>
+                    <!--#endregion-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="14*"></RowDefinition>
+                            <RowDefinition Height="9*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <!--#region 体温监测详情 -->
+                        <Border Background="White" CornerRadius="5" Padding="16" Margin="16,0,16,8">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="20" Direction="20" Color="#eef4fa" ShadowDepth="0" Opacity="0.8" RenderingBias="Quality"></DropShadowEffect>
+                            </Border.Effect>
+                            <DockPanel>
+                                <Border DockPanel.Dock="Top" Padding="0,0,0,8" BorderBrush="#f1f2f3" BorderThickness="0,0,0,1">
+                                    <TextBlock Text="体温监测详情" FontWeight="Black" FontSize="14" Foreground="Black"></TextBlock>
+                                </Border>
+                                <ContentControl></ContentControl>
+                            </DockPanel>
+                        </Border>
+                        <!--#endregion-->
+                        <!--#region 历史体温数据 -->
+                        <Border Grid.Row="1" Background="White" CornerRadius="5" Padding="16" Margin="16,8,16,0">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="20" Direction="20" Color="#eef4fa" ShadowDepth="0" Opacity="0.8" RenderingBias="Quality"></DropShadowEffect>
+                            </Border.Effect>
+                            <DockPanel>
+                                <Border DockPanel.Dock="Top" Padding="0,0,0,8" BorderBrush="#f1f2f3" BorderThickness="0,0,0,1">
+                                    <TextBlock Text="历史体温数据" FontWeight="Black" FontSize="14" Foreground="Black"></TextBlock>
+                                </Border>
+                                <ContentControl></ContentControl>
+                            </DockPanel>
+                        </Border>
+                        <!--#endregion-->
+                    </Grid>
+                </DockPanel>                
+            </Border>
+        </DockPanel>
+    </DockPanel>
+</Window>

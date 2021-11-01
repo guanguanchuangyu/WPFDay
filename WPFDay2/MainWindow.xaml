@@ -1,0 +1,363 @@
+﻿<Window x:Class="WPFDay2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lib="clr-namespace:WPFDayLib;assembly=WPFDayLib"
+        xmlns:custom="clr-namespace:WPFDay2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="648" Width="1000">
+    <Window.Resources>
+        <Geometry x:Key="chat">M512 0C229.23 0 0 200.606 0 447.976c0 141.41 75.045 267.361 192.024 349.476V1024L416.33 887.954c31.013 5.072 62.903 8.095 95.671 8.095 282.77 0 512-200.607 512-448.073C1024 200.606 794.77 0 512 0zM256 512.049a64.024 64.024 0 1 1 0.049-128A64.024 64.024 0 0 1 256 512z m256 0a64.024 64.024 0 1 1 0-128.098 64.024 64.024 0 0 1 0 128.098z m256 0a64.024 64.024 0 1 1 0.049-128 64.024 64.024 0 0 1-0.049 128z</Geometry>
+        <GeometryGroup x:Key="user">
+            <Geometry>M511.3 267.8m-203.8 0a203.8 203.8 0 1 0 407.6 0 203.8 203.8 0 1 0-407.6 0Z</Geometry>
+            <Geometry>M927.3 959.6c0.5-7.3 0.7-14.7 0.7-22.2 0-212.5-185.8-384.7-415-384.7S98 724.9 98 937.4c0 7.4 0.2 14.8 0.7 22.2h828.6z</Geometry>
+        </GeometryGroup>
+
+        <GeometryGroup x:Key="record">
+            <Geometry>M239.8 822.6c-2.5 0-5.2-0.6-8.5-1.8-9.6-3.5-14.7-14.2-11.4-23.9 20.2-59.8 81.4-205.8 89.2-221.4C457.4 279.1 614.6 144.5 870 95.4c7.8-1.4 15.5 1.9 19.6 8.5 4.1 6.6 3.8 15.1-0.9 21.4L767.4 286.5c-6.7 8.9-8.9 20.3-6 31.1l16.4 61.1c5.6 20.6 1.9 42.7-10 60.4a73.392 73.392 0 0 1-52.2 32.1l-83.8 10.4c-14.9 1.9-27.1 12.9-30.6 27.3 5.7 31-9.3 62.4-37 75.8-14.1 6.9-29.8 9-45.2 6.2l-75-13.5c-11.4-2-23.2 2.1-30.8 10.7L286.7 730.9c-2.8 6.8-15.6 39.3-22.7 57.3-2.7 6.8-4.9 12.6-7.1 17.3-0.4 1.2-0.8 2.3-1.2 3.4l-0.4-0.1c-4.5 9.2-8.8 13.8-15.5 13.8z m588-679.2c-215.9 54.3-350.7 180.8-484.8 449-2 4-7.8 17.3-15.6 35.7l57.5-64.9c16.3-18.4 41.5-27.2 65.7-22.8l75 13.5c7.6 1.4 15.2 0.3 22.1-3 13-6.3 19.7-21.9 15.9-37.1-0.6-2.4-0.7-5-0.4-7.4 5-32.5 31.3-58 63.9-62.1l83.8-10.4c10.4-1.3 19.7-7 25.5-15.7 5.8-8.7 7.6-19.4 4.9-29.5l-16.4-61.1c-6-22.1-1.5-45.3 12.3-63.6l90.6-120.6zM326.1 583.9h0.2-0.2zM435.9 941c-32.6 0-49.6-20.4-62-35.3C362 891.5 355.2 884 341 884s-21.1 7.4-33 21.7c-12.4 14.9-29.4 35.3-62 35.3s-49.5-20.4-61.9-35.3c-11.9-14.3-18.7-21.7-33-21.7-10.4 0-18.9-8.5-18.9-18.9 0-10.4 8.5-18.9 18.9-18.9 32.6 0 49.6 20.4 62 35.3 11.9 14.2 18.7 21.7 32.9 21.7s21.1-7.4 33-21.7c12.4-14.9 29.4-35.3 62-35.3s49.6 20.4 62 35.3c11.9 14.2 18.7 21.7 33 21.7 10.4 0 18.9 8.5 18.9 18.9-0.1 10.5-8.6 18.9-19 18.9z</Geometry>
+        </GeometryGroup>
+
+        <GeometryGroup x:Key="history">
+            <Geometry>M684.55 347.913H339.744c-26.82 0-48.645-21.82-48.645-48.643V171.228c0-26.821 21.823-48.64 48.645-48.64h58.815c7.633-55.864 55.662-99.046 113.587-99.046 57.926 0 105.956 43.182 113.588 99.046h58.815c26.82 0 48.642 21.819 48.642 48.64V299.27c0 26.823-21.823 48.643-48.643 48.643zM339.744 169.676c-0.856 0-1.555 0.696-1.555 1.553V299.27c0 0.858 0.699 1.554 1.555 1.554H684.55c0.857 0 1.556-0.696 1.556-1.554V171.228c0-0.857-0.7-1.553-1.556-1.553H577.21l2.218-25.576c0.185-2.176 0.277-4.11 0.277-5.912 0-37.25-30.306-67.557-67.557-67.557-37.25 0-67.557 30.307-67.557 67.557 0 1.802 0.091 3.736 0.278 5.912l2.215 25.576H339.745zM312.19 762.742h398.75v47.088H312.19v-47.088z m0-150.095h398.75v47.09H312.19v-47.09z m0-150.094h398.75v47.09H312.19v-47.09zM816.403 967.79H205.388c-32.551 0-59.034-26.484-59.034-59.034V271.39c0-32.552 26.484-59.035 59.034-59.035h83.7v-40.617c0-26.913 21.898-48.807 48.812-48.807h59.017c7.659-56.057 55.853-99.388 113.978-99.388 58.127 0 106.32 43.331 113.98 99.388h59.017c26.913 0 48.81 21.894 48.81 48.807v40.617h83.701c32.552 0 59.036 26.484 59.036 59.035v637.367c0 32.55-26.485 59.034-59.036 59.034zM205.388 259.606c-6.498 0-11.783 5.286-11.783 11.784v637.367c0 6.498 5.285 11.784 11.783 11.784h611.015c6.5 0 11.787-5.286 11.787-11.784V271.39c0-6.498-5.288-11.784-11.787-11.784H685.452v-87.869c0-0.858-0.701-1.557-1.56-1.557H576.178l2.23-25.665c0.185-2.181 0.277-4.122 0.277-5.932 0-37.38-30.411-67.79-67.79-67.79-37.377 0-67.789 30.41-67.789 67.79 0 1.81 0.091 3.75 0.279 5.932l2.226 25.665h-107.71c-0.86 0-1.561 0.699-1.561 1.557v87.869H205.388z</Geometry>
+        </GeometryGroup>
+
+
+        <GeometryGroup x:Key="search">
+            <Geometry>M929.066 835.035L737.304 643.274c46.026-59.205 73.443-133.595 73.443-214.406 0-193.088-156.514-349.644-349.683-349.644-193.09 0-349.603 156.556-349.603 349.644 0 193.13 156.515 349.643 349.603 349.643 80.83 0 155.232-27.419 214.445-73.445L867.273 896.83c8.513 8.516 19.705 12.813 30.896 12.813s22.383-4.297 30.897-12.813c17.111-17.07 17.111-44.723 0-61.794zM198.88 428.868c0.002-144.594 117.59-262.222 262.183-262.222 144.675 0 262.262 117.629 262.262 262.222 0 144.634-117.587 262.224-262.262 262.224-144.594 0-262.183-117.59-262.183-262.224z</Geometry>
+        </GeometryGroup>
+
+        <Geometry x:Key="upload">
+            M881.159758 308.762179h-37.171598v-24.264636c0-42.142819-34.285874-76.428693-76.428693-76.428694h-30.021758a27.805276 27.805276 0 0 0-3.215228-0.193405H560.109718c-11.763928 0-21.332864-9.570983-21.332865-21.333887v-10.167571c0-2.052752-0.233314-4.051269-0.661056-5.977131 0.171915-1.242294 0.268106-2.509147 0.268107-3.798513 0-42.141796-34.284851-76.42767-76.42767-76.42767H140.715859c-42.141796 0-76.42767 34.284851-76.42767 76.42767v679.126369c0 42.141796 34.284851 76.42767 76.42767 76.42767h49.038879l0.036839 0.001023h15.446807l0.036839-0.001023h675.883511c42.141796 0 76.42767-34.284851 76.42767-76.42767V385.190873c0-42.142819-34.284851-76.428693-76.426646-76.428694z m-761.777787-142.16486c0-11.762905 9.570983-21.333888 21.333888-21.333888H461.957257c11.762905 0 21.332864 9.570983 21.332864 21.333888 0 2.051729 0.233314 4.049223 0.660033 5.974062a27.727505 27.727505 0 0 0-0.268106 3.801582v10.167571c0 42.141796 34.284851 76.42767 76.428693 76.42767H675.945933c1.063215 0.124843 2.14178 0.196475 3.23774 0.196474h88.375794c11.762905 0 21.332864 9.56996 21.332864 21.332865v24.264636h-486.08784c-42.142819 0-76.428693 34.284851-76.428694 76.42767v262.589581c0 1.095961 0.071631 2.174526 0.196475 3.23774v194.706517c0 11.762905-9.570983 21.332864-21.333888 21.332865h-15.446807l-0.039909 0.001023h-49.036833c-11.762905 0-21.333888-9.570983-21.333887-21.333888v-679.126368z m761.777787 700.459233l-0.039909 0.001023h-602.599438a76.744895 76.744895 0 0 0 3.145643-21.333888v-223.168755c0-1.093914-0.071631-2.170432-0.195451-3.230578v-234.134505c0-11.762905 9.570983-21.333888 21.334911-21.333887h510.397502c1.063215 0.124843 2.14178 0.196475 3.237741 0.196474s2.174526-0.071631 3.237741-0.196474h61.48126c11.762905 0 21.333888 9.570983 21.333887 21.333887v460.533838c0 11.762905-9.570983 21.332864-21.333887 21.332865z
+        </Geometry>
+
+        <Geometry x:Key="smile">
+            M1024 512C1024 229.23 794.77 0 512 0S0 229.23 0 512s229.23 512 512 512c117.41 0 228.826-39.669 318.768-111.313 10.79-8.595 12.569-24.308 3.975-35.097-8.594-10.789-24.308-12.568-35.097-3.974C718.47 938.277 618.002 974.049 512 974.049 256.818 974.049 49.951 767.182 49.951 512S256.818 49.951 512 49.951 974.049 256.818 974.049 512c0 87.493-24.334 171.337-69.578 243.96-7.294 11.708-3.716 27.112 7.992 34.405 11.707 7.294 27.11 3.716 34.405-7.991C997.014 701.88 1024 608.898 1024 512z m-686.83-12.488c34.485 0 62.44-27.955 62.44-62.439s-27.955-62.439-62.44-62.439c-34.483 0-62.438 27.955-62.438 62.44 0 34.483 27.955 62.438 62.439 62.438z m374.635 0c34.484 0 62.439-27.955 62.439-62.439s-27.955-62.439-62.44-62.439c-34.483 0-62.438 27.955-62.438 62.44 0 34.483 27.955 62.438 62.439 62.438zM352.788 768.771c43.377 34.702 100.364 55.424 171.7 55.424 71.336 0 128.322-20.722 171.7-55.424 26.513-21.21 42.695-42.786 50.444-58.284 6.168-12.338 1.168-27.34-11.17-33.509-12.337-6.168-27.34-1.168-33.508 11.17-0.918 1.835-3.462 6.025-7.788 11.793-7.564 10.085-17.239 20.27-29.183 29.825-34.671 27.737-80.71 44.478-140.495 44.478-59.786 0-105.824-16.741-140.496-44.478-11.944-9.556-21.619-19.74-29.182-29.825-4.327-5.768-6.87-9.958-7.788-11.793-6.169-12.338-21.171-17.338-33.509-11.17-12.337 6.169-17.338 21.171-11.169 33.509 7.75 15.498 23.931 37.074 50.444 58.284z
+        </Geometry>
+
+        <Geometry x:Key="catchimag">
+            M940.8 832V121.6H160V0H89.6v121.6H19.2V192h76.8v716.8h780.8V1024h70.4v-121.6h70.4V832h-76.8z m-70.4 0H160V185.6h716.8V832zM230.4 748.8h576c6.4 0 12.8 0 12.8-6.4 6.4-6.4 6.4-12.8 0-19.2l-102.4-268.8c0-6.4-6.4-12.8-12.8-12.8s-12.8 0-19.2 6.4L569.6 627.2c0 6.4-12.8 6.4-19.2 6.4L352 537.6c-6.4-6.4-19.2 0-25.6 6.4l-115.2 179.2c-6.4 6.4-6.4 12.8 0 19.2 6.4 0 12.8 6.4 19.2 6.4zM345.6 358.4m-70.4 0a70.4 70.4 0 1 0 140.8 0 70.4 70.4 0 1 0-140.8 0Z
+        </Geometry>
+        <ControlTemplate x:Key="IconTemplate" TargetType="{x:Type Button}">
+            <Grid>
+                <StackPanel>
+                    <Path Data="{TemplateBinding lib:ControlExtensions.Data}" Stretch="Uniform" 
+                                          Width="{TemplateBinding Width}" 
+                                          Height="{TemplateBinding Width}" 
+                                          Fill="{TemplateBinding Foreground}"></Path>
+                </StackPanel>
+            </Grid>
+        </ControlTemplate>
+
+        <Style x:Key="IconButton" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="33.2"/>
+            <Setter Property="Height" Value="33.2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template" Value="{StaticResource IconTemplate}"/>
+        </Style>
+
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="#464f58"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" CornerRadius="15" 
+                                Background="{TemplateBinding Background}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <custom:ChatTemplateSelector x:Key="ChatTemplateSelector"></custom:ChatTemplateSelector>
+
+        <Style x:Key="MessageToolPath" TargetType="{x:Type Path}">
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="Fill" Value="Black"/>
+        </Style>
+
+        <lib:StringToImageConverter x:Key="StringToImageConverter"/>
+
+        <ControlTemplate x:Key="ChatItemTmp" TargetType="{x:Type ListBoxItem}">
+            <Border x:Name="Bg" Padding="20,10" Background="{TemplateBinding Background}">
+                <DockPanel>
+                    <Ellipse Width="44" Height="{Binding RelativeSource={RelativeSource Mode=Self},Path=Width}" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True">
+                        <Ellipse.Fill>
+                            <!--此处必须使用Binding RelativeSource TemplatedParent-->
+                            <ImageBrush ImageSource="{Binding Path=(custom:MainWindow.HeaderPic),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <!--<ImageBrush ImageSource="{TemplateBinding Property=Tag,Converter={StaticResource StringToImageConverter}}"/>-->
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    
+                    <!--<Image Width="44" Height="44" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True"
+                           Source="{Binding Path=(custom:MainWindow.HeaderPic),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>-->
+
+                    <!--<Image Width="44" Height="44" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True"
+                           Source="{TemplateBinding custom:MainWindow.HeaderPic,Converter={StaticResource StringToImageConverter}}"/>-->
+                    
+                    <StackPanel Margin="10,10,0,0">
+                        <!--使用Binding RelativeSource TemplatedParent-->
+                        <!--<TextBlock Text="{Binding Path=(custom:MainWindow.HeaderName),RelativeSource={RelativeSource Mode=TemplatedParent}}" FontSize="14" Foreground="#eeeeef"></TextBlock>-->
+                        <!--使用TemplateBinding-->
+                        <TextBlock Text="{TemplateBinding custom:MainWindow.HeaderName}" FontSize="14" Foreground="#eeeeef"></TextBlock>
+
+                        <TextBlock Text="{TemplateBinding custom:MainWindow.LastChat}" FontSize="10" Margin="0,5" Foreground="#929394"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                    <Setter Property="Background" Value="#464f58" TargetName="Bg"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <Style x:Key="ChatListItem" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template" Value="{StaticResource ChatItemTmp}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="custom:MainWindow.HeaderName" Value="{Binding Name}"/>
+            <Setter Property="custom:MainWindow.HeaderPic" Value="{Binding PicUrl}"/>
+            <Setter Property="Tag" Value="{Binding PicUrl}"/>
+            <Setter Property="custom:MainWindow.LastChat" Value="{Binding LastContent}"/>
+        </Style>
+
+        <Style x:Key="ChatList" TargetType="{x:Type ListBox}">
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="ItemContainerStyle" Value="{StaticResource ChatListItem}"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <ItemsPresenter></ItemsPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <custom:MainViewModel x:Key="MainModel"></custom:MainViewModel>
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Source="{StaticResource MainModel}"></Binding>
+    </Window.DataContext>
+    <Grid>
+        <!--布局列-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="188.8*"></ColumnDefinition>
+            <ColumnDefinition Width="508.8*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--左列内容-->
+        <Border Padding="11.2,20.8" Background="#303942">
+            <DockPanel>
+                <Ellipse Width="44" DockPanel.Dock="Top" Height="44" VerticalAlignment="Top">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/boy.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Button lib:ControlExtensions.Data="{StaticResource chat}" 
+                        Style="{StaticResource IconButton}" DockPanel.Dock="Top" Margin="0,34,0,16"/>
+                <Button DockPanel.Dock="Top" lib:ControlExtensions.Data="{StaticResource user}" 
+                        Style="{StaticResource IconButton}" Margin="0,16"/>
+
+                <Button DockPanel.Dock="Bottom" lib:ControlExtensions.Data="{StaticResource history}" 
+                        Style="{StaticResource IconButton}"></Button>
+                <Button DockPanel.Dock="Bottom" lib:ControlExtensions.Data="{StaticResource record}" 
+                        Style="{StaticResource IconButton}" Margin="0,16"></Button>
+                <ContentControl></ContentControl>
+            </DockPanel>
+        </Border>
+        <!--对话列表-->
+        <StackPanel Background="#363f48" Grid.Column="1" Orientation="Vertical">
+            <TextBox Style="{DynamicResource TextBoxStyle}" 
+                     HorizontalContentAlignment="Center" 
+                     VerticalContentAlignment="Center"
+                     Margin="20,15" Padding="10,8"></TextBox>
+            <ListBox x:Name="chatlst" SelectedIndex="0" Style="{StaticResource ChatList}" ItemsSource="{Binding ChatList}">
+                <!--<ListBoxItem custom:MainWindow.HeaderName="苯乙烯顾问-飞飞" 
+                             custom:MainWindow.HeaderPic="/boy.png"
+                             custom:MainWindow.LastChat="看起来只能是这样"></ListBoxItem>
+                <ListBoxItem custom:MainWindow.HeaderName="苯乙烯顾问-红红" 
+                             custom:MainWindow.HeaderPic="/grile.png"
+                             custom:MainWindow.LastChat="看起来只能是这样"></ListBoxItem>-->
+            </ListBox>
+            <!--鼠标选中项样式-->
+            <!--<Border Padding="20,10" Background="#464f58">
+                <DockPanel>
+                    <Ellipse Width="44" Height="44" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/grile.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel Margin="10,10,0,0">
+                        <TextBlock Text="苯乙烯顾问-飞飞" FontSize="14" Foreground="#eeeeef"></TextBlock>
+                        <TextBlock Text="看起来只能是这样" FontSize="10" Margin="0,5" Foreground="#929394"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </Border>-->
+            <!--默认项样式-->
+            <!--<Border Padding="20,10">
+                <DockPanel>
+                    <Ellipse Width="44" Height="44" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/boy.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel Margin="10,10,0,0">
+                        <TextBlock Text="苯乙烯顾问-白白" FontSize="14" Foreground="#eeeeef"></TextBlock>
+                        <TextBlock Text="看起来只能是这样" FontSize="10" Margin="0,5" Foreground="#929394"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </Border>-->
+            <!--省略项-->
+            <!--<Border Padding="20,10">
+                <DockPanel>
+                    <Ellipse Width="44" Height="44" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/boy.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel Margin="10,10,0,0">
+                        <TextBlock Text="苯乙烯群" FontSize="14" Foreground="#eeeeef"></TextBlock>
+                        <TextBlock Text="看起来只能是这样" FontSize="10" Margin="0,5" Foreground="#929394"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <Border Padding="20,10">
+                <DockPanel>
+                    <Ellipse Width="44" Height="44" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/grile.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel Margin="10,10,0,0">
+                        <TextBlock Text="苯乙烯顾问-红红" FontSize="14" Foreground="#eeeeef"></TextBlock>
+                        <TextBlock Text="看起来只能是这样" FontSize="10" Margin="0,5" Foreground="#929394"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <Border Padding="20,10">
+                <DockPanel>
+                    <Ellipse Width="44" Height="44" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/boy.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel Margin="10,10,0,0">
+                        <TextBlock Text="苯乙烯顾问-等等" FontSize="14" Foreground="#eeeeef"></TextBlock>
+                        <TextBlock Text="看起来只能是这样" FontSize="10" Margin="0,5" Foreground="#929394"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <Border Padding="20,10">
+                <DockPanel>
+                    <Ellipse Width="44" Height="44" DockPanel.Dock="Left" ClipToBounds="True" SnapsToDevicePixels="True">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/grile.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel Margin="10,10,0,0">
+                        <TextBlock Text="苯乙烯顾问" FontSize="14" Foreground="#eeeeef"></TextBlock>
+                        <TextBlock Text="看起来只能是这样" FontSize="10" Margin="0,5" Foreground="#929394"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </Border>-->
+        </StackPanel>
+        <!--当前对话框-->
+        <DockPanel Grid.Column="2" Background="White">
+            <!--顶部头内容-->
+            <Border DockPanel.Dock="Top" Padding="20,0" Height="62" BorderBrush="#ededed" SnapsToDevicePixels="True" BorderThickness="0,0,0,1.5">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="妞妞" FontSize="18"></TextBlock>
+            </Border>
+            <!--内容输入框-->
+            <Border DockPanel.Dock="Bottom" BorderBrush="#ededed" SnapsToDevicePixels="True" Padding="5" BorderThickness="0,1.5,0,0" Height="150">
+                <DockPanel>
+                    <Button Name="btn_send" Content="发送" 
+                            DockPanel.Dock="Bottom" Margin="2" 
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Cursor="Hand" HorizontalAlignment="Right" Click="btn_send_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Bg" Padding="10" 
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="5">
+                                    <ContentPresenter Content="{TemplateBinding Content}" 
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                      SnapsToDevicePixels="True"></ContentPresenter>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <StackPanel HorizontalAlignment="Left" DockPanel.Dock="Top" Orientation="Horizontal">
+                        <Path Margin="0,0,5,0" Style="{StaticResource MessageToolPath}" Data="{StaticResource smile}"/>
+                        <Path  Margin="5,0" Style="{StaticResource MessageToolPath}" Data="{StaticResource upload}"/>
+                        <Path  Margin="5,0" Style="{StaticResource MessageToolPath}" Data="{StaticResource catchimag}"/>
+                        <RadioButton Content="发送" Name="rd_send" IsChecked="True" GroupName="msg" VerticalContentAlignment="Center" Checked="RadioButton_Checked" Margin="5,0"></RadioButton>
+                        <RadioButton Content="接受" Name="rd_recv" GroupName="msg" VerticalContentAlignment="Center" Checked="RadioButton_Checked"></RadioButton>
+                    </StackPanel>
+                    <RichTextBox TextBlock.LineHeight="3" FontSize="14" Padding="10" x:Name="txt_msg" BorderThickness="0" 
+                             VerticalScrollBarVisibility="Auto"></RichTextBox>
+                </DockPanel>
+            </Border>
+            <!--对话列表-->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                <ItemsControl
+                    HorizontalContentAlignment="Stretch"
+                    ItemTemplateSelector="{StaticResource ChatTemplateSelector}" x:Name="chats" ItemsSource="{Binding Chats}" Background="White" Margin="10">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.Template>
+                        <ControlTemplate TargetType="{x:Type ItemsControl}">
+                            <Grid>
+                                <ItemsPresenter></ItemsPresenter>
+                            </Grid>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                </ItemsControl>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>
